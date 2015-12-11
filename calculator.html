@@ -39,7 +39,7 @@
               <button type="button" class="btn btn-info" id="deci">Decimal</button>
               <button type="button" class="btn btn-success" id="hex">Hexadecimal</button>
             </div>
-            <input type="text" class="form-control" id="result" placeholder="Result" aria-label="..." readonly>
+            <input type="text" class="form-control" id="result" placeholder="Result" aria-label="..." disabled>
           </div>
         </div>
       </div>
@@ -47,9 +47,9 @@
       <div class="row no-gutter">
         <div class="col-md-12">
           <div class="input-group">
-            <input type="text" class="form-control" id="user-entry" placeholder="You can also type directly!">
+            <input type="text" class="form-control" id="user-entry" placeholder="Your input will be shown here." disabled>
             <span class="input-group-btn">
-              <button class="btn btn-primary" type="button" id="bksp"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbspBkSp</button>
+              <button class="btn btn-primary" type="button" id="op-d"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbspBkSp</button>
             </span>
           </div>
         </div>
@@ -57,50 +57,50 @@
 
       <div class="row no-gutter">
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="mod">mod</button>
-          <button type="button" class="btn btn-default" id="log">log</button>
+          <button type="button" class="btn btn-default" id="op-%" disabled>mod</button>
+          <button type="button" class="btn btn-default" id="op-l" disabled>log</button>
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="button-1">1</button>
-          <button type="button" class="btn btn-default" id="button-4">4</button>
+          <button type="button" class="btn btn-default" id="nb-1">1</button>
+          <button type="button" class="btn btn-default" id="nb-4">4</button>
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="button-2">2</button>
-          <button type="button" class="btn btn-default" id="button-5">5</button>
+          <button type="button" class="btn btn-default" id="nb-2">2</button>
+          <button type="button" class="btn btn-default" id="nb-5">5</button>
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="button-3">3</button>
-          <button type="button" class="btn btn-default" id="button-6">6</button>
+          <button type="button" class="btn btn-default" id="nb-3">3</button>
+          <button type="button" class="btn btn-default" id="nb-6">6</button>
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="sign">+/-</button>
-          <button type="button" class="btn btn-default" id="button-+">+</button>
+          <button type="button" class="btn btn-default" id="op-s">+/-</button>
+          <button type="button" class="btn btn-default" id="op-+">+</button>
         </div>
-        <div class="col-md-2"><button type="button" class="btn btn-default" id="clear">Clear</button></div>
+        <div class="col-md-2"><button type="button" class="btn btn-default" id="op-c">Clear</button></div>
       </div>
 
       <div class="row no-gutter">
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="pow">pow</button>
-          <button type="button" class="btn btn-default" id="root">root</button>
+          <button type="button" class="btn btn-default" id="op-^" disabled>pow</button>
+          <button type="button" class="btn btn-default" id="op-r" disabled>root</button>
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="button-7">7</button>
-          <button type="button" class="btn btn-default" id="button-/">/</button>
+          <button type="button" class="btn btn-default" id="nb-7">7</button>
+          <button type="button" class="btn btn-default" id="op-/">/</button>
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="button-8">8</button>
-          <button type="button" class="btn btn-default" id="button-0">0</button>
+          <button type="button" class="btn btn-default" id="nb-8">8</button>
+          <button type="button" class="btn btn-default" id="nb-0">0</button>
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="button-9">9</button>
-          <button type="button" class="btn btn-default" id="button-.">.</button>
+          <button type="button" class="btn btn-default" id="nb-9">9</button>
+          <button type="button" class="btn btn-default" id="nb-.">.</button>
         </div>
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="button--">-</button>
-          <button type="button" class="btn btn-default" id="button-*">*</button>
+          <button type="button" class="btn btn-default" id="op--">-</button>
+          <button type="button" class="btn btn-default" id="op-*">*</button>
         </div>
-        <div class="col-md-2"><button type="button" class="btn btn-default" id="eval">=</button></div>
+        <div class="col-md-2"><button type="button" class="btn btn-default" id="op-=">=</button></div>
       </div>
     </div><!--/calc-container-->
     </div> 
