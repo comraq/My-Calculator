@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div id="html-window"></div>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/bootstrap.js"></script>
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom Stylesheets and Scripts -->
+    <script type="text/javascript" src="js/custom/main.js"></script>
+    <link rel="stylesheet" href="css/custom/main.css">
+
+    <title>My Calculator</title>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+      <div id="head-title">My Programming Calculator</div>
+
+    <div class="calc-container">
+      <div class="row no-gutter">
+        <div class="col-md-12">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <!-- Buttons -->
+              <button type="button" class="btn btn-warning" id="op-b">Binary</button>
+              <button type="button" class="btn btn-info" id="op-d">Decimal</button>
+              <button type="button" class="btn btn-success" id="op-h">Hexadecimal</button>
+            </div>
+            <input type="text" class="form-control" id="result" placeholder="Result" aria-label="..." disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutter">
+        <div class="col-md-12">
+          <div class="input-group">
+            <input type="text" class="form-control" id="user-entry" placeholder="Your input will be shown here." aria-label="..." disabled>
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="button" id="op-n"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbspBkSp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-gutter">
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="op-%">mod</button>
+          <button type="button" class="btn btn-default" id="op-l">lg</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="nb-1">1</button>
+          <button type="button" class="btn btn-default" id="nb-4">4</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="nb-2">2</button>
+          <button type="button" class="btn btn-default" id="nb-5">5</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="nb-3">3</button>
+          <button type="button" class="btn btn-default" id="nb-6">6</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="op-s">+/-</button>
+          <button type="button" class="btn btn-default" id="op-+">+</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="op-c">Clear</button>
+          <button type="button" class="btn btn-default" id="op-*">*</button>
+        </div>
+      </div>
+
+      <div class="row no-gutter">
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="op-^">pow</button>
+          <button type="button" class="btn btn-default" id="op-r">root</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="nb-7">7</button>
+          <button type="button" class="btn btn-default" id="op-p">2^x</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="nb-8">8</button>
+          <button type="button" class="btn btn-default" id="nb-0">0</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="nb-9">9</button>
+          <button type="button" class="btn btn-default" id="nb-.">.</button>
+        </div>
+
+        <div class="col-md-4">
+          <div class="row no-gutter last-row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-default" id="op--">-</button>
+            </div>
+            <div class="col-md-6"> 
+              <button type="button" class="btn btn-default" id="op-/">/</button>
+            </div>
+          </div>
+
+          <div class="row no-gutter last-row">
+            <div class="col-md-12"><button type="button" class="btn btn-default" id="op-=">=</button></div>
+          </div>
+        </div>
+
+      </div>
+    </div><!--/calc-container-->
+    </div> 
+  </body>
+</html>
