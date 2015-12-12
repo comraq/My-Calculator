@@ -60,10 +60,10 @@ function buttonClick() {
         };
         break;
       case "s":
-        if (parseFloat($userEntry.val()) == "NaN") {
-          warn("invert sign");
-        } else {
+        if ($userEntry.val().length != 0) {
           $userEntry.val(parseFloat($userEntry.val())*(-1));
+        } else {
+          warn("invert sign");
         }    
         break;
       case "n":
@@ -85,50 +85,86 @@ function buttonClick() {
         break;
       case "b":
         var res = $("#result").val();
-        if (res == "") {
+        if (res == "" && $userEntry.val().length != 0) {
+          $("button").removeClass("active");
+          $(this).addClass("active");
           if (isNaN($userEntry.val())) {
             warn("to Binary");
           } else {
             updateResult((parseFloat($userEntry.val()) >>> 0).toString(2));
-          }
-        } else if (!isNaN(parseFloat(res, 10))) {
-          updateResult((parseFloat(res) >>> 0).toString(2));
-        } else if (!isNaN(parseFloat(res, 16))) {
-          updateResult((parseFloat(res) >>> 0).toString(2));
+          };
+        } else if (!$(this).hasClass("active")) {
+          $("button").removeClass("active");
+          $(this).addClass("active");
+          if (!isNaN(parseFloat(res, 10))) {
+            updateResult((parseFloat(res) >>> 0).toString(2));
+          } else if (!isNaN(parseFloat(res, 16))) {
+            updateResult((parseFloat(res) >>> 0).toString(2));
+          } else {
+            warn("to Binary");
+          }; 
         } else {
-          warn("to Binary");
-        }; 
+          alert("Result is already in Binary!");
+        };
         break;    
       case "d":
         var res = $("#result").val();
-        if (res == "") {
+        if (res == "" && $userEntry.val().length != 0) {
+          $("button").removeClass("active");
+          $(this).addClass("active");
           if (isNaN($userEntry.val())) {
             warn("to Decimal");
           } else {
             updateResult(parseInt($userEntry.val()).toString());
-          }
-        } else if (!isNaN(parseInt(res, 2))) {
-          updateResult(parseInt(res, 2).toString(10));
-        } else if (!isNaN(parseInt(res, 16))) {
-          updateResult(parseInt(res, 16).toString(10));
+          };
+        } else if (!$(this).hasClass("active")) {
+          $("button").removeClass("active");
+          $(this).addClass("active");
+          if (!isNaN(parseInt(res, 2))) {
+            if (res.length == 32 && res[0] == 1) {
+              res = parseInt(res, 2);
+              res = res - 0xFFFFFFFF - 1;
+              updateResult(res.toString(10));
+            } else {
+              updateResult(parseInt(res, 2).toString(10));
+            };
+          } else if (!isNaN(parseInt(res, 16))) {
+            updateResult(parseInt(res, 16).toString(10));
+          } else {
+            warn("to Decimal");
+          };
         } else {
-          warn("to Decimal");
+          alert("Result is already in Decimal!");
         };
         break;
       case "h":
         var res = $("#result").val();
-        if (res == "") {
+        if (res == "" && $userEntry.val().length != 0) {
+          $("button").removeClass("active");
+          $(this).addClass("active");
           if (isNaN($userEntry.val())) {
-            warn("to Hexaecimal");
+            warn("to Hex");
           } else {
             updateResult(parseInt($userEntry.val()).toString(16).toUpperCase());
-          }
-        } else if (!isNaN(parseInt(res, 2))) {
-          updateResult(parseInt(res, 2).toString(16).toUpperCase());
-        } else if (!isNaN(parseInt(res))) {
-          updateResult(parseInt(res).toString(16).toUpperCase());
+          };
+        } else if (!$(this).hasClass("active")) {
+          $("button").removeClass("active");
+          $(this).addClass("active");
+          if (!isNaN(parseInt(res, 2))) {
+            if (res.length == 32 && res[0] == 1) {
+              res = parseInt(res, 2);
+              res = res - 0xFFFFFFFF - 1;
+              updateResult(res.toString(16).toUpperCase());
+            } else {
+              updateResult(parseInt(res, 2).toString(16).toUpperCase());
+            };
+          } else if (!isNaN(parseInt(res))) {
+            updateResult(parseInt(res).toString(16).toUpperCase());
+          } else {
+            warn("to Hex");
+          };
         } else {
-          warn("to Decimal");
+          alert("Result is already in Hex!")
         };
         break;
       default: 
@@ -210,8 +246,8 @@ function warn(op) {
 
 function clear() {
   exprStack = [];
-  bracket = 0;
   updateResult("");
+  $("button").removeClass("active");
 };
 
 $(document).ready(function() {
