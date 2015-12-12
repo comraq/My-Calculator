@@ -1,0 +1,121 @@
+html {
+  font-family: sans-serif;
+
+  /*background-color: #ccffcc;*/
+  background-image: url("../img/grass.jpg");
+}
+
+#html-window {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  background-color: #fff;
+  opacity: 0.2;
+}
+
+#title {
+  margin: 0;
+
+  font-family: verdana;
+  font-size: 60px;
+  color: blue;
+  text-align: center;
+
+  border: 1px dashed #1028fc;
+  background-color: #00cd10;
+  padding: 10px 0px 10px 0;
+  opacity: 0.3;
+}
+
+.wip-container {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 400px;
+
+  height: 500px;
+  width: 500px;
+}
+
+.wip {
+  position: relative;
+ 
+  height: 100%;
+  width: 100%;
+
+  background-image: url("../../img/wip.jpg");
+  background-repeat: no-repeat;
+}
+
+.wip:hover { background-image: url("../../img/busy.gif"); }
+
+button {
+  position: relative;
+  margin-top: 165px;
+
+  float: right;
+
+  visibility: hidden;
+}
+
+.wip:hover button { visibility: visible; }
+
+.wip-description {
+ 
+  clear: both;
+ 
+  width: 100%;
+  height: 100%;
+
+  color: #109938;
+  text-align: center;
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+.wip:hover .wip-description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.wip-description:nth-child(2){
+  -webkit-animation-name: wipNote; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+  -webkit-animation-iteration-count: infinite;
+  animation-name: wipNote;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes wipNote {
+    0%   { color: red; }
+    25%  { color: yellow; }
+    50%  { color: blue; }
+    75%  { color: green; }
+    100% { color: red; }
+}
+
+/* Standard syntax */
+@keyframes wipNote {
+    0%   { color: red; }
+    25%  { color: yellow; }
+    50%  { color: blue; }
+    75%  { color: green; }
+    100% { color: red; }
+}
+
+#wip-excuse {
+  position: absolute;
+  margin-left: 100px;
+
+  width: 80%;
+
+  color: #0099ff;
+  text-align: center;
+
+  transition: all 1s ease;
+}
+
+#wip-excuse:hover { color: #ff9900; }
