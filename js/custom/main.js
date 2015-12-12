@@ -125,7 +125,7 @@ function buttonClick() {
           }
         } else if (!isNaN(parseInt(res, 2))) {
           updateResult(parseInt(res, 2).toString(16).toUpperCase());
-        } else if (!isNaN(parseInt(re))) {
+        } else if (!isNaN(parseInt(res))) {
           updateResult(parseInt(res).toString(16).toUpperCase());
         } else {
           warn("to Decimal");
