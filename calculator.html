@@ -12,7 +12,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="js/bootstrap.js"></script>
-
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -35,9 +35,9 @@
           <div class="input-group">
             <div class="input-group-btn">
               <!-- Buttons -->
-              <button type="button" class="btn btn-warning" id="bin">Binary</button>
-              <button type="button" class="btn btn-info" id="deci">Decimal</button>
-              <button type="button" class="btn btn-success" id="hex">Hexadecimal</button>
+              <button type="button" class="btn btn-warning" id="op-b">Binary</button>
+              <button type="button" class="btn btn-info" id="op-d">Decimal</button>
+              <button type="button" class="btn btn-success" id="op-h">Hexadecimal</button>
             </div>
             <input type="text" class="form-control" id="result" placeholder="Result" aria-label="..." disabled>
           </div>
@@ -47,18 +47,18 @@
       <div class="row no-gutter">
         <div class="col-md-12">
           <div class="input-group">
-            <input type="text" class="form-control" id="user-entry" placeholder="Your input will be shown here." disabled>
-            <span class="input-group-btn">
-              <button class="btn btn-primary" type="button" id="op-d"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbspBkSp</button>
-            </span>
+            <input type="text" class="form-control" id="user-entry" placeholder="Your input will be shown here." aria-label="..." disabled>
+            <div class="input-group-btn">
+              <button class="btn btn-primary" type="button" id="op-n"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>&nbspBkSp</button>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="row no-gutter">
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="op-%" disabled>mod</button>
-          <button type="button" class="btn btn-default" id="op-l" disabled>log</button>
+          <button type="button" class="btn btn-default" id="op-%">mod</button>
+          <button type="button" class="btn btn-default" id="op-l">lg</button>
         </div>
         <div class="col-md-2">
           <button type="button" class="btn btn-default" id="nb-1">1</button>
@@ -76,17 +76,20 @@
           <button type="button" class="btn btn-default" id="op-s">+/-</button>
           <button type="button" class="btn btn-default" id="op-+">+</button>
         </div>
-        <div class="col-md-2"><button type="button" class="btn btn-default" id="op-c">Clear</button></div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-default" id="op-c">Clear</button>
+          <button type="button" class="btn btn-default" id="op-*">*</button>
+        </div>
       </div>
 
       <div class="row no-gutter">
         <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="op-^" disabled>pow</button>
-          <button type="button" class="btn btn-default" id="op-r" disabled>root</button>
+          <button type="button" class="btn btn-default" id="op-^">pow</button>
+          <button type="button" class="btn btn-default" id="op-r">root</button>
         </div>
         <div class="col-md-2">
           <button type="button" class="btn btn-default" id="nb-7">7</button>
-          <button type="button" class="btn btn-default" id="op-/">/</button>
+          <button type="button" class="btn btn-default" id="op-p">2^x</button>
         </div>
         <div class="col-md-2">
           <button type="button" class="btn btn-default" id="nb-8">8</button>
@@ -96,11 +99,22 @@
           <button type="button" class="btn btn-default" id="nb-9">9</button>
           <button type="button" class="btn btn-default" id="nb-.">.</button>
         </div>
-        <div class="col-md-2">
-          <button type="button" class="btn btn-default" id="op--">-</button>
-          <button type="button" class="btn btn-default" id="op-*">*</button>
+
+        <div class="col-md-4">
+          <div class="row no-gutter last-row">
+            <div class="col-md-6">
+              <button type="button" class="btn btn-default" id="op--">-</button>
+            </div>
+            <div class="col-md-6"> 
+              <button type="button" class="btn btn-default" id="op-/">/</button>
+            </div>
+          </div>
+
+          <div class="row no-gutter last-row">
+            <div class="col-md-12"><button type="button" class="btn btn-default" id="op-=">=</button></div>
+          </div>
         </div>
-        <div class="col-md-2"><button type="button" class="btn btn-default" id="op-=">=</button></div>
+
       </div>
     </div><!--/calc-container-->
     </div> 

@@ -52,3 +52,8 @@ html {
   text-align: right;
   background-color: #fff;
 }
+
+.last-row {
+  margin-left: 0px;
+  width: 100%;
+}
