@@ -1,6 +1,7 @@
 html {
   font-family: sans-serif;
 
+  opacity: 0;
   background-image: url("../../img/numbers.jpg");
 }
 
@@ -35,6 +36,8 @@ html {
   
   height: 100%;
   width: 100%;
+
+  opacity: 0;
 }
 
 .btn-default {

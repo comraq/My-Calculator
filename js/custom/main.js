@@ -84,94 +84,60 @@ function buttonClick() {
         };
         break;
       case "b":
-        var res = $("#result").val();
-        if (res == "" && $userEntry.val().length != 0) {
-          $("button").removeClass("active");
-          $(this).addClass("active");
-          if (isNaN($userEntry.val())) {
-            warn("to Binary");
-          } else {
-            updateResult((parseFloat($userEntry.val()) >>> 0).toString(2));
-          };
-        } else if (!$(this).hasClass("active")) {
-          $("button").removeClass("active");
-          $(this).addClass("active");
-          if (!isNaN(parseFloat(res, 10))) {
-            updateResult((parseFloat(res) >>> 0).toString(2));
-          } else if (!isNaN(parseFloat(res, 16))) {
-            updateResult((parseFloat(res) >>> 0).toString(2));
-          } else {
-            warn("to Binary");
-          }; 
-        } else {
-          alert("Result is already in Binary!");
-        };
+        toBase(2, this); 
         break;    
       case "d":
-        var res = $("#result").val();
-        if (res == "" && $userEntry.val().length != 0) {
-          $("button").removeClass("active");
-          $(this).addClass("active");
-          if (isNaN($userEntry.val())) {
-            warn("to Decimal");
-          } else {
-            updateResult(parseInt($userEntry.val()).toString());
-          };
-        } else if (!$(this).hasClass("active")) {
-          $("button").removeClass("active");
-          $(this).addClass("active");
-          if (!isNaN(parseInt(res, 2))) {
-            if (res.length == 32 && res[0] == 1) {
-              res = parseInt(res, 2);
-              res = res - 0xFFFFFFFF - 1;
-              updateResult(res.toString(10));
-            } else {
-              updateResult(parseInt(res, 2).toString(10));
-            };
-          } else if (!isNaN(parseInt(res, 16))) {
-            updateResult(parseInt(res, 16).toString(10));
-          } else {
-            warn("to Decimal");
-          };
-        } else {
-          alert("Result is already in Decimal!");
-        };
+        toBase(10, this);
         break;
       case "h":
-        var res = $("#result").val();
-        if (res == "" && $userEntry.val().length != 0) {
-          $("button").removeClass("active");
-          $(this).addClass("active");
-          if (isNaN($userEntry.val())) {
-            warn("to Hex");
-          } else {
-            updateResult(parseInt($userEntry.val()).toString(16).toUpperCase());
-          };
-        } else if (!$(this).hasClass("active")) {
-          $("button").removeClass("active");
-          $(this).addClass("active");
-          if (!isNaN(parseInt(res, 2))) {
-            if (res.length == 32 && res[0] == 1) {
-              res = parseInt(res, 2);
-              res = res - 0xFFFFFFFF - 1;
-              updateResult(res.toString(16).toUpperCase());
-            } else {
-              updateResult(parseInt(res, 2).toString(16).toUpperCase());
-            };
-          } else if (!isNaN(parseInt(res))) {
-            updateResult(parseInt(res).toString(16).toUpperCase());
-          } else {
-            warn("to Hex");
-          };
-        } else {
-          alert("Result is already in Hex!")
-        };
+        toBase(16, this);
         break;
       default: 
         alert("Case not yet implemented");
     }
   }
 };
+
+function toBase(base, baseButton) {
+  var currBase;
+  var updated = false;
+  if ($("#op-b").hasClass("active")) {
+    currBase = 2;
+  } else if ($("#op-d").hasClass("active")) {
+    currBase = 10;
+  } else {
+    currBase = 16;
+  }
+  var userVal =  $("#user-entry").val();  
+  var res = $("#result").val();
+  if (res.length == 0 && userVal.length > 0) {
+    if (isNaN(userVal)) {
+      warn("to Base" + base);
+    } else {
+      updateResult(parseInt(userVal).toString(base));
+      updated = true;
+    };
+  } else if (res.length > 0) {
+    if (currBase != base) {
+      if (currBase == 2 && res.length == 32 && res[0] == 1) {
+        res = parseInt(res, 2);
+        res = res - 0xFFFFFFFF - 1;
+        updateResult(res.toString(base));
+      } else {
+        updateResult(parseInt(res, currBase).toString(base));
+      };
+      updated = true;
+    } else {
+      alert("Result is already in Base" + base + "!");
+    };
+  } else {
+    warn("to Base" + base);
+  };
+  if (updated) {
+    $("button").removeClass("active");
+    $(baseButton).addClass("active");
+  }
+}
 
 function stackCurrentNum(num) {
   if (exprStack[exprStack.length - 1] == "-") {
@@ -248,10 +214,14 @@ function clear() {
   exprStack = [];
   updateResult("");
   $("button").removeClass("active");
+  $("#op-d").addClass("active");
 };
 
 $(document).ready(function() {
   clear();
 
+  $("html").fadeTo(500, 1, function() {
+    $(".calc-container").fadeTo(500, 1);
+  });
   $("button").click(buttonClick);
 });
