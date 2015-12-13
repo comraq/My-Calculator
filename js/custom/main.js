@@ -99,8 +99,9 @@ function buttonClick() {
 };
 
 function toBase(base, baseButton) {
-  var currBase;
+  var currBase, currVal;
   var updated = false;
+  var prefix = "";
   if ($("#op-b").hasClass("active")) {
     currBase = 2;
   } else if ($("#op-d").hasClass("active")) {
@@ -114,17 +115,27 @@ function toBase(base, baseButton) {
     if (isNaN(userVal)) {
       warn("to Base" + base);
     } else {
-      updateResult(parseInt(userVal).toString(base));
+      currVal = parseInt(userVal);
+      if (base == 2) {
+        if (currVal >= 0) prefix = "0";
+        currVal = currVal >>> 0;
+      }
+      updateResult(prefix + currVal.toString(base));
       updated = true;
     };
   } else if (res.length > 0) {
     if (currBase != base) {
-      if (currBase == 2 && res.length == 32 && res[0] == 1) {
+      if (currBase == 2 && res[0] == 1) {
         res = parseInt(res, 2);
         res = res - 0xFFFFFFFF - 1;
         updateResult(res.toString(base));
       } else {
-        updateResult(parseInt(res, currBase).toString(base));
+        currVal = parseInt(res, currBase);
+        if (base == 2) {
+          if (currVal >= 0) prefix = "0";
+          currVal = currVal >>> 0;
+        }
+        updateResult(prefix + currVal.toString(base));
       };
       updated = true;
     } else {
