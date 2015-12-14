@@ -231,7 +231,7 @@ function clear() {
 $(document).ready(function() {
   clear();
 
-  $("html").fadeTo(500, 1, function() {
+  $("body").fadeTo(500, 1, function() {
     $(".calc-container").fadeTo(500, 1);
   });
   $("button").click(buttonClick);

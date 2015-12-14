@@ -1,23 +1,14 @@
-html {
-  font-family: sans-serif;
-
+body { 
+  background-image: url("../../img/numbers.jpg"); 
   opacity: 0;
-  background-image: url("../../img/numbers.jpg");
 }
 
-#html-window {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-
-  background-color: #fff;
-  opacity: 0.4;
-}
+#html-window { opacity: 0.4; }
 
 .container-fluid {
   position: relative;
   float: left;
-  margin-top: 13%;
+  margin-top: 8%;
   margin-left: 24%;
 
   height: auto;
@@ -72,9 +63,11 @@ html {
   width: 13%;
 }
 
-#side-button {
+#home-button {
   height: 100%;
   width: 100%;
 
   font-size: 1.1vw;
 }
+
+.btn:hover { transform: scale(1.05); }
