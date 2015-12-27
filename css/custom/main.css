@@ -56,18 +56,4 @@ body {
   text-shadow: 10px 10px 20px #888;
 }
 
-#side-container {
-  position: relative;
-
-  float: right;
-  width: 13%;
-}
-
-#home-button {
-  height: 100%;
-  width: 100%;
-
-  font-size: 1.1vw;
-}
-
 .btn:hover { transform: scale(1.05); }
